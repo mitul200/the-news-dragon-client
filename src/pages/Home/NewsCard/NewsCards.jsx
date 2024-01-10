@@ -14,16 +14,7 @@ import { Link } from "react-router-dom";
 const NewsCards = ({ news }) => {
   console.log(news);
   // eslint-disable-next-line react/prop-types
-  const {
-    _id,
-    author,
-    image_url,
-    title,
-    total_view,
-    img,
-    name,
-    details,
-    rating,
+  const { _id,author,image_url,title,total_view, details, rating,
   } = news;
   return (
     <div className="mt-5">
@@ -62,7 +53,7 @@ const NewsCards = ({ news }) => {
             )}
           </Card.Text>
         </Card.Body>
-        <Card.Footer className="text-muted d-flex">
+        <Card.Footer className="text-muted d-flex  align-items-center">
           <div className="flex-grow-1">
             {/* <Rating>
               placeholderRating={rating.number}

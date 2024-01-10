@@ -4,11 +4,13 @@ import Header from "../Shared/Header/Header";
 import LeftNev from "../Shared/LeftNev/LeftNev";
 import RightNav from "../Shared/Rightnav/RightNav";
 import { Outlet } from "react-router-dom";
+import Navigation from "../Shared/NavigationBar/Navigation";
 
 const Main = () => {
   return (
     <div>
       <Header></Header>
+      <Navigation></Navigation>
       <Container className="mt-5">
         <Row>
           <Col lg={3}>
