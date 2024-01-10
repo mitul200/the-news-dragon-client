@@ -20,13 +20,13 @@ const LeftNev = () => {
         National News
       </Button>{" "}
       <div className="">
-        {categoris.map((categori) => (
-          <p key={categori.id}>
+        {categoris.map((category) => (
+          <p key={category.id}>
             <Link
-              to={`categori/${categori.id}`}
+              to={`category/${category.id}`}
               className="text-secondary fw-bold text-decoration-none"
             >
-              {categori.name}
+              {category.name}
             </Link>
           </p>
         ))}

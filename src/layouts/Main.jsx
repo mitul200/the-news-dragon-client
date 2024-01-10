@@ -3,6 +3,7 @@ import Footer from "../Shared/Footer/Footer";
 import Header from "../Shared/Header/Header";
 import LeftNev from "../Shared/LeftNev/LeftNev";
 import RightNav from "../Shared/Rightnav/RightNav";
+import { Outlet } from "react-router-dom";
 
 const Main = () => {
   return (
@@ -13,8 +14,8 @@ const Main = () => {
           <Col lg={3}>
            <LeftNev></LeftNev>
           </Col>
-          <Col lg={3}>
-            <h4>main content Coming ...</h4>
+          <Col lg={6}>
+           <Outlet></Outlet>
           </Col>
           <Col lg={3}>
             <RightNav></RightNav>
