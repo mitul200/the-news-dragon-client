@@ -1,13 +1,45 @@
+import { useContext, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 // import { Form } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
+  const [appceted , setAppceted] = useState(false)
+  const  {creatUser} = useContext(AuthContext)
+  // console.log(creatUser);
+
+
+  const handelRegister = (event)=>{
+    event.preventDefault()
+    const form = event.target
+    const email = form.email.value
+    const password = form.password.value
+    const name = form.name.value
+    console.log(email,password,name);
+    creatUser(email , password)
+    .then(result => {
+      const loggedUser = result.user
+      console.log(loggedUser);
+    })
+    .catch((error)=>{
+      console.log(error);
+    })
+
+  }
+
+  const handelCheackOut =(event)=>{
+    setAppceted(event.target.checked);
+
+
+  }
+
+
   return (
     <Container className="mx-auto w-25">
       <h4 className="mt-2">Please Register !!!</h4>
-      <Form>
+      <Form onSubmit={handelRegister}>
         {/* name--site */}
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Your Name</Form.Label>
@@ -25,7 +57,7 @@ const Register = () => {
             type="text"
             placeholder="Enter Photo Url"
             name="photo"
-            required
+            
           />
         </Form.Group>
         {/* Email--site */}
@@ -51,13 +83,15 @@ const Register = () => {
 
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check
+          onClick={handelCheackOut}
             type="checkbox"
-            label="Apcets them & conditions"
+            label={<>Appcets <Link to='/trams'>them & conditions</Link></>}
             name="accept"
             className=" text-secondary"
+            
           />
         </Form.Group>
-        <Button variant="secondary" type="submit" className="px-5 ">
+        <Button variant="secondary"  disabled={!appceted} type="submit" className="px-5 ">
           Register
         </Button>
         <br />

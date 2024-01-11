@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
 const NewsCards = ({ news }) => {
-  console.log(news);
+  // console.log(news);
   // eslint-disable-next-line react/prop-types
   const { _id,author,image_url,title,total_view, details, rating,
   } = news;
